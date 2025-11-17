@@ -1,5 +1,6 @@
 /* * ARQUIVO: components.css
  * Define todos os componentes reutilizáveis da UI
+ * ATUALIZADO: Modal corrigido para Dark Mode e Z-Index
  */
 
 /* 1. Botões (com estados) */
@@ -51,38 +52,41 @@
 
 /* 2. Cards (para projetos) */
 .card {
-    background: var(--color-neutral-white);
+    background: var(--bg-card); /* Usa variável de tema */
+    border: 1px solid var(--border-color); /* Borda para diferenciar no dark mode */
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow: hidden; /* Garante que a imagem não vaze o border-radius */
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Para alinhar em grids */
+    height: 100%;
     margin-bottom: var(--space-md);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .card-image {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Garante que a imagem cubra o espaço */
+    object-fit: cover;
 }
 
 .card-body {
     padding: var(--space-md);
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Faz o corpo crescer para preencher o card */
+    flex-grow: 1;
 }
 
 .card-title {
     font-size: var(--font-size-lg);
     margin-bottom: var(--space-xs);
+    color: var(--text-main); /* Texto adaptável */
 }
 
 .card-text {
     font-size: var(--font-size-sm);
-    color: var(--color-neutral-medium);
-    flex-grow: 1; /* Empurra o botão para baixo */
+    color: var(--text-secondary); /* Texto adaptável */
+    flex-grow: 1;
     margin-bottom: var(--space-sm);
 }
 
@@ -100,6 +104,7 @@
     display: block;
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--space-xs);
+    color: var(--text-main);
 }
 
 .form-control {
@@ -107,7 +112,9 @@
     width: 100%;
     padding: var(--space-sm);
     font-size: var(--font-size-md);
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-card); /* Fundo adaptável */
+    color: var(--text-main); /* Texto adaptável */
     border-radius: var(--border-radius);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -127,7 +134,7 @@
 }
 
 fieldset {
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     padding: var(--space-md);
     margin-bottom: var(--space-md);
@@ -135,6 +142,7 @@ fieldset {
 legend {
     font-weight: var(--font-weight-bold);
     padding: 0 var(--space-xs);
+    color: var(--text-main);
 }
 
 /* 4. Alertas (Feedback) */
@@ -155,7 +163,7 @@ legend {
     color: #721c24;
 }
 
-/* 5. Modal (Feedback) */
+/* --- 5. Modal (CORRIGIDO) --- */
 .modal-overlay {
     display: none; /* Escondido por padrão */
     position: fixed;
@@ -163,34 +171,40 @@ legend {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
-    z-index: 2000;
+    background: rgba(0,0,0,0.7); /* Mais escuro para focar */
+    z-index: 3000; /* ACIMA do Header (que é 2000) */
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(2px); /* Desfoque suave no fundo */
 }
 .modal-overlay.active {
     display: flex; /* Mostra o modal */
 }
 
 .modal-content {
-    background: var(--color-neutral-white);
+    background-color: var(--bg-card); /* Adapta ao Dark Mode */
+    color: var(--text-main);          /* Texto legível no Dark Mode */
+    border: 1px solid var(--border-color);
+    
     padding: var(--space-lg);
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     width: 90%;
     max-width: 500px;
+    position: relative;
 }
 
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: var(--space-sm);
     margin-bottom: var(--space-sm);
 }
 .modal-header h3 {
     margin: 0;
+    color: var(--text-main);
 }
 .modal-close-btn {
     font-size: 1.5rem;
@@ -198,14 +212,28 @@ legend {
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--color-neutral-medium);
+    color: var(--text-main); /* O 'X' segue a cor do texto */
+    transition: color 0.2s;
 }
 .modal-close-btn:hover {
-    color: var(--color-neutral-darkest);
+    color: var(--color-feedback-danger);
 }
 
 .modal-body {
     margin-bottom: var(--space-md);
+    line-height: 1.6;
+}
+
+/* Estilo extra para a chave PIX dentro do modal */
+.modal-body strong {
+    display: block;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: var(--bg-surface);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 

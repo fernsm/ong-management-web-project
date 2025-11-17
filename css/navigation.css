@@ -1,11 +1,15 @@
 /* * ARQUIVO: navigation.css
  * Menu principal, dropdown e menu mobile (hambúrguer)
+ * ATUALIZADO: Flexbox para alinhamento perfeito
  */
 
 .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* Garante que o header fique acima do conteúdo em caso de sobreposição */
+    position: relative; 
+    z-index: 1000;
 }
 
 .logo {
@@ -13,21 +17,29 @@
     font-weight: var(--font-weight-bold);
     color: var(--color-neutral-darkest);
     text-decoration: none;
+    white-space: nowrap; /* Impede que o logo quebre linha */
 }
 .logo:hover {
     color: var(--color-primary);
     text-decoration: none;
 }
 
+/* --- CORREÇÃO PRINCIPAL AQUI --- */
 .main-nav {
+    display: flex;          /* Transforma a lista em linha flexível */
+    align-items: center;    /* Centraliza verticalmente (texto com botões) */
+    gap: 15px;              /* Espaço automático entre os itens */
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav li {
-    display: inline-block; /* Padrão desktop */
-    margin-left: var(--space-md);
+    display: block;
+    margin: 0; /* Removemos a margem antiga, o 'gap' acima resolve */
     position: relative; /* Contexto para o dropdown */
 }
+/* ------------------------------- */
 
 .main-nav a {
     display: block;
@@ -36,6 +48,7 @@
     font-weight: var(--font-weight-bold);
     text-decoration: none;
     transition: color 0.3s ease;
+    white-space: nowrap; /* Impede quebra de linha nos links */
 }
 
 .main-nav a:hover,
@@ -44,17 +57,42 @@
     text-decoration: none;
 }
 
+/* Estilo para o Botão de Tema (Modo Escuro) */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid currentColor; /* Pega a cor do texto atual */
+    color: inherit;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.theme-toggle:hover {
+    opacity: 0.8;
+}
+
 /* 3.1 Dropdown */
 .dropdown-content {
     display: none; /* Escondido por padrão */
     position: absolute;
-    top: 100%;
+    top: 100%; /* Logo abaixo do item pai */
     left: 0;
     background: var(--color-neutral-white);
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
     min-width: 200px;
     z-index: 1001;
+    padding: 5px 0;
+}
+
+/* Correção para Modo Escuro no Dropdown */
+body.dark-mode .dropdown-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
 }
 
 /* Mostra o dropdown no hover do item PAI */
@@ -63,16 +101,18 @@
 }
 
 .dropdown-content li {
-    display: block; /* Empilha os itens verticalmente */
+    display: block;
     margin: 0;
 }
 
 .dropdown-content a {
     padding: var(--space-sm) var(--space-md);
-    white-space: nowrap; /* Impede que o texto quebre linha */
+    white-space: nowrap;
+    color: var(--text-main); /* Garante cor correta no dark mode */
 }
 .dropdown-content a:hover {
-    background-color: var(--color-neutral-light);
+    background-color: var(--bg-surface); /* Cor de fundo suave no hover */
+    color: var(--color-primary);
 }
 
 
@@ -92,6 +132,10 @@
     background-color: var(--color-neutral-darkest);
     margin: 5px 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
+}
+/* Ajuste da cor do ícone no Dark Mode */
+body.dark-mode .menu-toggle .icon-bar {
+    background-color: var(--text-main);
 }
 
 /* Animação do "X" do hambúrguer */

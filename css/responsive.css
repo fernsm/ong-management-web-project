@@ -1,6 +1,7 @@
 /* * ARQUIVO: responsive.css
  * Contém todas as Media Queries (5 breakpoints)
  * Abordagem: Mobile First (do menor para o maior)
+ * ATUALIZADO: Menu Desktop apenas acima de 992px
  */
 
 /* Breakpoint 1: Small (sm) - 576px e acima (Celulares maiores) */
@@ -9,7 +10,6 @@
         max-width: 540px;
     }
     
-    /* Colunas SM */
     .col-sm-1 { width: 8.333333%; }
     .col-sm-2 { width: 16.666667%; }
     .col-sm-3 { width: 25%; }
@@ -30,29 +30,8 @@
         max-width: 720px;
     }
     
-    /* Esconde o Hambúrguer e mostra o menu normal */
-    .menu-toggle {
-        display: none;
-    }
-    .main-nav {
-        display: block !important; /* !important para sobrepor JS */
-        position: static;
-        width: auto;
-        background: none;
-        transform: none;
-        padding: 0;
-    }
-    .main-nav li {
-        display: inline-block;
-        margin-left: var(--space-md);
-        padding: 0;
-        border-bottom: none;
-    }
-    .main-nav a {
-        padding: var(--space-xs) 0;
-    }
-    
-    /* Colunas MD */
+    /* NOTA: Removemos a lógica do menu daqui para evitar quebra em tablets */
+
     .col-md-1 { width: 8.333333%; }
     .col-md-2 { width: 16.666667%; }
     .col-md-3 { width: 25%; }
@@ -75,7 +54,32 @@
 
     h1 { font-size: var(--font-size-xxl); }
 
-    /* Colunas LG */
+    /* --- AQUI É O NOVO PONTO DE MUDANÇA DO MENU --- */
+    /* Esconde o Hambúrguer */
+    .menu-toggle {
+        display: none;
+    }
+
+    /* Mostra o Menu Completo (Flexbox) */
+    .main-nav {
+        display: flex !important; /* !important garante que apareça */
+        position: static;
+        width: auto;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .main-nav li {
+        display: block;
+        margin: 0;
+        border-bottom: none;
+    }
+    /* ---------------------------------------------- */
+
     .col-lg-1 { width: 8.333333%; }
     .col-lg-2 { width: 16.666667%; }
     .col-lg-3 { width: 25%; }
@@ -96,7 +100,6 @@
         max-width: 1140px;
     }
     
-    /* Colunas XL */
     .col-xl-1 { width: 8.333333%; }
     .col-xl-2 { width: 16.666667%; }
     .col-xl-3 { width: 25%; }
@@ -112,48 +115,50 @@
 }
 
 
-/* * Breakpoint 5: Mobile (xs) - Abaixo de 768px (Default para Menu)
- * Este é o "breakpoint" reverso, definindo o estado inicial do mobile.
+/* * Breakpoint 5: Mobile/Tablet (xs até md) - Abaixo de 992px
+ * Aumentamos o limite de 767px para 991px para incluir tablets
  */
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
     .main-nav {
         display: none; /* Escondido por padrão */
         position: absolute;
-        top: 100%; /* Abaixo do header */
+        top: 100%; 
         left: 0;
         width: 100%;
         background: var(--color-neutral-white);
-        box-shadow: var(--box-shadow);
-        padding: var(--space-sm) 0;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        padding: 10px 0;
+        flex-direction: column; /* Empilha os itens */
+        z-index: 1000;
+    }
+
+    /* Ajuste para Dark Mode no Mobile */
+    body.dark-mode .main-nav {
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
     }
     
     /* Classe .active é controlada por JS */
     .main-nav.active {
-        display: block;
+        display: flex;
     }
 
     .main-nav li {
         display: block;
         margin: 0;
         text-align: center;
+        width: 100%;
     }
     
     .main-nav a {
-        padding: var(--space-sm) var(--space-md);
-        border-bottom: 1px solid var(--color-neutral-light);
+        display: block;
+        padding: 12px;
+        border-bottom: 1px solid var(--border-color);
     }
     
+    /* No mobile, o dropdown não abre no hover, simplificamos */
     .dropdown:hover .dropdown-content {
-        display: none; /* Desativa dropdown no hover em mobile */
-    }
-    /* Em mobile, o dropdown pode ser um clique ou um submenu */
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        background: var(--color-neutral-light);
-    }
-    .dropdown-content a {
-        padding-left: var(--space-lg);
+        display: none; 
     }
 
     .menu-toggle {
