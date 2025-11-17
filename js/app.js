@@ -1,25 +1,26 @@
-/* * app.js: Inicializa a aplicação e eventos globais
+/* * app.js: Inicializa a aplicação, SPA e Dark Mode
  */
 import { router, navigateTo } from './router.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Intercepta cliques em links com 'data-link' para fazer a SPA funcionar
+    // 1. SPA: Intercepta cliques em links
     document.body.addEventListener('click', e => {
         if (e.target.matches('[data-link]')) {
-            e.preventDefault(); // Impede o link normal
-            navigateTo(e.target.getAttribute('href')); // Usa nosso roteador
+            e.preventDefault();
+            navigateTo(e.target.getAttribute('href'));
         }
     });
 
-    // 2. Lida com os botões de Voltar/Avançar do navegador
+    // 2. Navegação do Browser (Voltar/Avançar)
     window.addEventListener('popstate', router);
 
-    // 3. Carrega a página inicial
+    // 3. Carrega conteúdo inicial
     router();
 
-    // 4. Lógica do Modal (Global) e Menu Mobile
+    // 4. Configurações de UI (Menu, Modal e Dark Mode)
     setupGlobalUI();
+    setupDarkMode(); // <--- Novo!
 });
 
 function setupGlobalUI() {
@@ -43,6 +44,33 @@ function setupGlobalUI() {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             mainNav.classList.toggle('active');
+        });
+    }
+}
+
+function setupDarkMode() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Verifica se o usuário já tinha escolhido antes
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-mode');
+        toggleBtn.innerText = '☀️ Modo Claro';
+    }
+
+    // Evento de clique
+    if(toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                toggleBtn.innerText = '☀️ Modo Claro';
+            } else {
+                localStorage.setItem('theme', 'light');
+                toggleBtn.innerText = '🌙 Modo Escuro';
+            }
         });
     }
 }
