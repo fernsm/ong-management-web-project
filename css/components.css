@@ -1,0 +1,234 @@
+/* * ARQUIVO: components.css
+ * Define todos os componentes reutilizáveis da UI
+ */
+
+/* 1. Botões (com estados) */
+.btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-neutral-white);
+}
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-neutral-white);
+    text-decoration: none;
+}
+/* Estados :focus, :active, :disabled */
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.btn:disabled {
+    background-color: var(--color-neutral-medium);
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-darkest);
+}
+.btn-secondary:hover {
+    background-color: #ffca2c; /* Amarelo mais escuro */
+    color: var(--color-neutral-darkest);
+    text-decoration: none;
+}
+
+
+/* 2. Cards (para projetos) */
+.card {
+    background: var(--color-neutral-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden; /* Garante que a imagem não vaze o border-radius */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Para alinhar em grids */
+    margin-bottom: var(--space-md);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem cubra o espaço */
+}
+
+.card-body {
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o corpo crescer para preencher o card */
+}
+
+.card-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-xs);
+}
+
+.card-text {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-medium);
+    flex-grow: 1; /* Empurra o botão para baixo */
+    margin-bottom: var(--space-sm);
+}
+
+.card-footer {
+    padding: 0 var(--space-md) var(--space-md);
+}
+
+
+/* 3. Formulários Estilizados */
+.form-group {
+    margin-bottom: var(--space-sm);
+}
+
+.form-group label {
+    display: block;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-xs);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: var(--space-sm);
+    font-size: var(--font-size-md);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Validação Visual Nativa (HTML5) */
+.form-control:invalid:not(:placeholder-shown) {
+    border-color: var(--color-feedback-danger);
+}
+.form-control:valid:not(:placeholder-shown) {
+    border-color: var(--color-feedback-success);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+legend {
+    font-weight: var(--font-weight-bold);
+    padding: 0 var(--space-xs);
+}
+
+/* 4. Alertas (Feedback) */
+.alert {
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-md);
+    border-radius: var(--border-radius);
+    border: 1px solid transparent;
+}
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* 5. Modal (Feedback) */
+.modal-overlay {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-overlay.active {
+    display: flex; /* Mostra o modal */
+}
+
+.modal-content {
+    background: var(--color-neutral-white);
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-sm);
+}
+.modal-header h3 {
+    margin: 0;
+}
+.modal-close-btn {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-neutral-medium);
+}
+.modal-close-btn:hover {
+    color: var(--color-neutral-darkest);
+}
+
+.modal-body {
+    margin-bottom: var(--space-md);
+}
+
+
+/* 6. Badges e Tags */
+.badge, .tag {
+    display: inline-block;
+    padding: var(--space-xxs) var(--space-xs);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+}
+
+.badge-primary {
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+}
+
+.badge-secondary {
+    background: var(--color-secondary);
+    color: var(--color-neutral-darkest);
+}
+
+.card-body .badge {
+    margin-bottom: var(--space-xs);
+}

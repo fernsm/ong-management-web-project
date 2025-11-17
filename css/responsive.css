@@ -1,0 +1,162 @@
+/* * ARQUIVO: responsive.css
+ * Contém todas as Media Queries (5 breakpoints)
+ * Abordagem: Mobile First (do menor para o maior)
+ */
+
+/* Breakpoint 1: Small (sm) - 576px e acima (Celulares maiores) */
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    /* Colunas SM */
+    .col-sm-1 { width: 8.333333%; }
+    .col-sm-2 { width: 16.666667%; }
+    .col-sm-3 { width: 25%; }
+    .col-sm-4 { width: 33.333333%; }
+    .col-sm-5 { width: 41.666667%; }
+    .col-sm-6 { width: 50%; }
+    .col-sm-7 { width: 58.333333%; }
+    .col-sm-8 { width: 66.666667%; }
+    .col-sm-9 { width: 75%; }
+    .col-sm-10 { width: 83.333333%; }
+    .col-sm-11 { width: 91.666667%; }
+    .col-sm-12 { width: 100%; }
+}
+
+/* Breakpoint 2: Medium (md) - 768px e acima (Tablets) */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    /* Esconde o Hambúrguer e mostra o menu normal */
+    .menu-toggle {
+        display: none;
+    }
+    .main-nav {
+        display: block !important; /* !important para sobrepor JS */
+        position: static;
+        width: auto;
+        background: none;
+        transform: none;
+        padding: 0;
+    }
+    .main-nav li {
+        display: inline-block;
+        margin-left: var(--space-md);
+        padding: 0;
+        border-bottom: none;
+    }
+    .main-nav a {
+        padding: var(--space-xs) 0;
+    }
+    
+    /* Colunas MD */
+    .col-md-1 { width: 8.333333%; }
+    .col-md-2 { width: 16.666667%; }
+    .col-md-3 { width: 25%; }
+    .col-md-4 { width: 33.333333%; }
+    .col-md-5 { width: 41.666667%; }
+    .col-md-6 { width: 50%; }
+    .col-md-7 { width: 58.333333%; }
+    .col-md-8 { width: 66.666667%; }
+    .col-md-9 { width: 75%; }
+    .col-md-10 { width: 83.333333%; }
+    .col-md-11 { width: 91.666667%; }
+    .col-md-12 { width: 100%; }
+}
+
+/* Breakpoint 3: Large (lg) - 992px e acima (Laptops) */
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    h1 { font-size: var(--font-size-xxl); }
+
+    /* Colunas LG */
+    .col-lg-1 { width: 8.333333%; }
+    .col-lg-2 { width: 16.666667%; }
+    .col-lg-3 { width: 25%; }
+    .col-lg-4 { width: 33.333333%; }
+    .col-lg-5 { width: 41.666667%; }
+    .col-lg-6 { width: 50%; }
+    .col-lg-7 { width: 58.333333%; }
+    .col-lg-8 { width: 66.666667%; }
+    .col-lg-9 { width: 75%; }
+    .col-lg-10 { width: 83.333333%; }
+    .col-lg-11 { width: 91.666667%; }
+    .col-lg-12 { width: 100%; }
+}
+
+/* Breakpoint 4: Extra Large (xl) - 1200px e acima (Desktops) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    /* Colunas XL */
+    .col-xl-1 { width: 8.333333%; }
+    .col-xl-2 { width: 16.666667%; }
+    .col-xl-3 { width: 25%; }
+    .col-xl-4 { width: 33.333333%; }
+    .col-xl-5 { width: 41.666667%; }
+    .col-xl-6 { width: 50%; }
+    .col-xl-7 { width: 58.333333%; }
+    .col-xl-8 { width: 66.666667%; }
+    .col-xl-9 { width: 75%; }
+    .col-xl-10 { width: 83.333333%; }
+    .col-xl-11 { width: 91.666667%; }
+    .col-xl-12 { width: 100%; }
+}
+
+
+/* * Breakpoint 5: Mobile (xs) - Abaixo de 768px (Default para Menu)
+ * Este é o "breakpoint" reverso, definindo o estado inicial do mobile.
+ */
+@media (max-width: 767.98px) {
+    .main-nav {
+        display: none; /* Escondido por padrão */
+        position: absolute;
+        top: 100%; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background: var(--color-neutral-white);
+        box-shadow: var(--box-shadow);
+        padding: var(--space-sm) 0;
+    }
+    
+    /* Classe .active é controlada por JS */
+    .main-nav.active {
+        display: block;
+    }
+
+    .main-nav li {
+        display: block;
+        margin: 0;
+        text-align: center;
+    }
+    
+    .main-nav a {
+        padding: var(--space-sm) var(--space-md);
+        border-bottom: 1px solid var(--color-neutral-light);
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: none; /* Desativa dropdown no hover em mobile */
+    }
+    /* Em mobile, o dropdown pode ser um clique ou um submenu */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        background: var(--color-neutral-light);
+    }
+    .dropdown-content a {
+        padding-left: var(--space-lg);
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o hambúrguer */
+    }
+}

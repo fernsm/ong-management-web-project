@@ -1,0 +1,91 @@
+/* * ARQUIVO: layout.css
+ * Estrutura principal (Grid), container e sistema de grid de 12 colunas
+ */
+
+/* Layout Principal (CSS Grid) */
+.site-wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Main (flexível), Footer */
+    min-height: 100vh;
+}
+
+.site-header {
+    padding: var(--space-sm) 0;
+    background: var(--color-neutral-white);
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.site-footer {
+    padding: var(--space-lg) 0;
+    background: var(--color-neutral-darkest);
+    color: var(--color-neutral-light);
+    text-align: center;
+    margin-top: var(--space-xl);
+}
+.site-footer a { color: var(--color-neutral-white); }
+
+
+/* Container principal (Limita a largura) */
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Seções principais */
+main {
+    padding-top: var(--space-lg);
+}
+
+section {
+    padding: var(--space-xl) 0;
+}
+section:nth-of-type(even) {
+    background-color: var(--color-neutral-light);
+}
+
+
+/* * Sistema de Grid Customizado (12 Colunas)
+ * Requisito: Implementar com Flexbox para alinhamentos
+ */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Usa margem negativa para compensar o padding dos .col */
+    margin-left: -12px; 
+    margin-right: -12px;
+}
+
+/* Todas as colunas têm padding para criar "gutters" (calhas) */
+[class^="col-"] {
+    padding-left: 12px; /* Metade do espaçamento (24px) */
+    padding-right: 12px; /* Metade do espaçamento (24px) */
+    width: 100%; /* Padrão mobile (stack) */
+}
+
+/* * Breakpoints (Mobile-first)
+ * As classes .col-* (sem prefixo) aplicam-se a mobile (xs) e acima.
+ * Usaremos os prefixos sm, md, lg, xl no responsive.css
+ */
+
+/* Gera as 12 colunas base (xs) */
+.col-1 { width: 8.333333%; }
+.col-2 { width: 16.666667%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.333333%; }
+.col-5 { width: 41.666667%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.333333%; }
+.col-8 { width: 66.666667%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.333333%; }
+.col-11 { width: 91.666667%; }
+.col-12 { width: 100%; }
+
+/* Classes de utilidade com Flexbox */
+.d-flex { display: flex; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }

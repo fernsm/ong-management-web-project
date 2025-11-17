@@ -1,0 +1,83 @@
+/* * ARQUIVO: design-system.css
+ * Define todas as variáveis globais (Design Tokens)
+ */
+
+:root {
+    /* 1. Paleta de Cores (8+ cores) */
+    --color-primary-dark: #006400;  /* Verde Escuro (para hover) */
+    --color-primary: #28a745;       /* Verde (Cor principal da ONG) */
+    --color-primary-light: #e9f7eb; /* Verde Claro (para fundos) */
+    
+    --color-secondary: #ffc107;     /* Amarelo/Laranja (Ação secundária, Doar) */
+
+    --color-neutral-darkest: #343a40; /* Preto (Texto principal) */
+    --color-neutral-medium: #6c757d; /* Cinza (Texto secundário) */
+    --color-neutral-light: #f8f9fa;  /* Cinza Claro (Fundo de seções) */
+    --color-neutral-white: #ffffff;  /* Branco */
+
+    --color-feedback-success: #28a745; /* Sucesso */
+    --color-feedback-danger: #dc3545;  /* Erro */
+    --color-feedback-warning: #ffc107; /* Aviso */
+
+    /* 2. Tipografia Hierárquica (5+ tamanhos) */
+    --font-family-base: 'Arial', 'Helvetica Neue', sans-serif;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+
+    --font-size-xs: 0.75rem;  /* 12px (para badges, tags) */
+    --font-size-sm: 0.875rem; /* 14px (texto pequeno) */
+    --font-size-md: 1rem;     /* 16px (Base para o body) */
+    --font-size-lg: 1.25rem;  /* 20px (Subtítulos) */
+    --font-size-xl: 1.75rem;  /* 28px (Títulos de seção h2) */
+    --font-size-xxl: 2.5rem;   /* 40px (Títulos principais h1) */
+
+    /* 3. Sistema de Espaçamento Modular (Base 8px) */
+    --space-xxs: 4px;   /* 0.5 * 8 */
+    --space-xs: 8px;    /* 1 * 8 */
+    --space-sm: 16px;   /* 2 * 8 */
+    --space-md: 24px;   /* 3 * 8 */
+    --space-lg: 32px;   /* 4 * 8 */
+    --space-xl: 48px;   /* 6 * 8 */
+    --space-xxl: 64px;  /* 8 * 8 */
+    
+    /* Outras variáveis */
+    --border-radius: 5px;
+    --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Reset Básico e Estilos Globais */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 100%; /* 16px */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+    color: var(--color-neutral-darkest);
+    background-color: var(--color-neutral-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    margin-bottom: var(--space-sm);
+}
+
+h1 { font-size: var(--font-size-xxl); }
+h2 { font-size: var(--font-size-xl); }
+h3 { font-size: var(--font-size-lg); }
+p { margin-bottom: var(--space-sm); }
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { color: var(--color-primary-dark); text-decoration: underline; }
+img, picture { max-width: 100%; height: auto; display: block; }
