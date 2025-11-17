@@ -4,72 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projetos - ONG Semeando o Futuro</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; }
-        .container { width: 90%; margin: auto; max-width: 1000px; }
-        header { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
-        nav { background: #444; padding: 0.5rem; }
-        nav ul { list-style: none; padding: 0; text-align: center; }
-        nav ul li { display: inline; margin: 0 15px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
-        main { padding: 2rem 0; }
-        section, article { margin-bottom: 2rem; }
-        img, picture { max-width: 100%; height: auto; }
-        footer { text-align: center; padding: 1rem; background: #333; color: #fff; margin-top: 2rem; }
-        .btn { background: #5cb85c; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="site-wrapper">
 
-    <header>
-        <div class="container">
-            <h1>Nossos Projetos Sociais</h1>
-        </div>
-    </header>
+    <header class="site-header">
+        </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Seja Voluntário</a></li>
-            </ul>
-        </div>
-    </nav>
+    <main>
+        <section id="nossos-projetos">
+            <div class="container">
+                <h2>Nossos Projetos Sociais</h2>
+                <p>Conheça as frentes em que atuamos para mudar realidades.</p>
+                
+                <div class="row">
 
-    <main class="container">
+                    <div class="col-lg-4 col-md-6">
+                        <article class="card" id="projeto-educar">
+                            <picture>
+                                <source srcset="images/ong-projetos.webp" type="image/webp">
+                                <img src="images/ong-projetos.jpg" alt="Voluntário ensinando" class="card-image">
+                            </picture>
+                            <div class="card-body">
+                                <span class="badge badge-primary">Educação</span>
+                                <h3 class="card-title">Projeto Educar+</h3>
+                                <p class="card-text">Reforço escolar e oficinas de tecnologia para jovens de 10 a 15 anos.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Saiba Mais</a>
+                            </div>
+                        </article>
+                    </div>
 
-        <article id="projeto-educar">
-            <h3>Projeto Educar+</h3>
-            <p>Focamos em reforço escolar e oficinas de tecnologia para jovens de 10 a 15 anos. O conhecimento é a ferramenta de mudança mais poderosa.</p>
-            
-            <picture>
-                <source srcset="images/ong-projetos.webp" type="image/webp">
-                <source srcset="images/ong-projetos.jpg" type="image/jpeg">
-                <img src="images/ong-projetos.jpg" alt="Voluntário ensinando crianças a usar um computador">
-            </picture>
-        </article>
+                    <div class="col-lg-4 col-md-6">
+                        <article class="card">
+                            <img src="images/placeholder.jpg" alt="Horta" class="card-image"> <div class="card-body">
+                                <span class="badge badge-secondary">Sustentabilidade</span>
+                                <h3 class="card-title">Horta Comunitária</h3>
+                                <p class="card-text">Cultivo de alimentos orgânicos para distribuição e educação ambiental.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Saiba Mais</a>
+                            </div>
+                        </article>
+                    </div>
 
-        <hr>
+                    <div class="col-lg-4 col-md-6">
+                        <article class="card">
+                            <img src="images/placeholder2.jpg" alt="Água" class="card-image"> <div class="card-body">
+                                <span class="badge badge-primary">Saúde</span>
+                                <h3 class="card-title">Água Limpa</h3>
+                                <p class="card-text">Instalação de filtros e cisternas em comunidades sem acesso à água potável.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Saiba Mais</a>
+                            </div>
+                        </article>
+                    </div>
 
-        <section id="voluntariado">
-            <h2>Seja um Voluntário</h2>
-            <p>O voluntariado é a alma da nossa organização. Precisamos de pessoas dispostas a doar seu tempo e talento para ensinar, organizar eventos ou ajudar na administração.</p>
-            <p>Se você tem interesse, preencha nosso formulário de inscrição!</p>
-            <a href="cadastro.html" class="btn">Quero ser Voluntário</a>
+                </div>
+            </div>
         </section>
-
-        <section id="doacoes">
-            <h2>Como Doar</h2>
-            <p>Sua doação é vital para mantermos nossos projetos ativos. Você pode contribuir financeiramente de forma segura ou doar materiais (livros, computadores, alimentos).</p>
-            <p><strong>Chave PIX (CNPJ):</strong> 12.345.678/0001-99</p>
-        </section>
-
     </main>
 
-    <footer>
-        <p>&copy; 2025 ONG Semeando o Futuro. Todos os direitos reservados.</p>
-    </footer>
+    <footer class="site-footer">
+        </footer>
+    
+    <div class="modal-overlay" id="doar-modal">
+        </div>
 
+    <script src="js/main.js"></script>
 </body>
 </html>

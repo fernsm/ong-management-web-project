@@ -4,68 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONG Semeando o Futuro - Início</title>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; }
-        .container { width: 90%; margin: auto; max-width: 1000px; }
-        header { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
-        nav { background: #444; padding: 0.5rem; }
-        nav ul { list-style: none; padding: 0; text-align: center; }
-        nav ul li { display: inline; margin: 0 15px; }
-        nav ul li a { color: #fff; text-decoration: none; font-weight: bold; }
-        main { padding: 2rem 0; }
-        section { margin-bottom: 2rem; }
-        img, picture { max-width: 100%; height: auto; }
-        footer { text-align: center; padding: 1rem; background: #333; color: #fff; margin-top: 2rem; }
-        address { font-style: normal; }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css">
+    
+    </head>
+<body class="site-wrapper"> <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">ONG Semeando o Futuro</a>
 
-    <header>
-        <div class="container">
-            <h1>ONG Semeando o Futuro</h1>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <nav>
+                <ul class="main-nav">
+                    <li><a href="index.html">Início</a></li>
+                    <li class="dropdown"> <a href="projetos.html">Projetos</a>
+                        <ul class="dropdown-content">
+                            <li><a href="projetos.html#projeto-educar">Educar+</a></li>
+                            <li><a href="#">Água Limpa</a></li>
+                            <li><a href="#">Horta Comunitária</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="cadastro.html">Seja Voluntário</a></li>
+                    <li><button class="btn btn-secondary" id="btn-doar-modal">DOAR AGORA</button></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="projetos.html">Projetos</a></li>
-                <li><a href="cadastro.html">Seja Voluntário</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main class="container">
+    <main>
+        
+        <section class="hero-section" style="background: var(--color-primary-light); text-align: center;">
+            <div class="container">
+                <h1>Transformando Vidas, Semeando o Futuro</h1>
+                <p style="font-size: var(--font-size-lg); color: var(--color-neutral-medium);">Junte-se a nós na missão de levar educação e dignidade a comunidades carentes.</p>
+                <a href="cadastro.html" class="btn btn-primary">Quero ser Voluntário</a>
+            </div>
+        </section>
         
         <section id="sobre">
-            <h2>Sobre Nossa Organização</h2>
-            <p>A "Semeando o Futuro" é uma organização não-governamental dedicada a promover a educação e o desenvolvimento sustentável em comunidades carentes. Acreditamos que cada semente plantada hoje pode gerar uma floresta de oportunidades amanhã.</p>
-            
-            <picture>
-                <source srcset="images/ong-home.webp" type="image/webp">
-                <source srcset="images/ong-home.jpg" type="image/jpeg">
-                <img src="images/ong-home.jpg" alt="Crianças sorrindo em uma sala de aula da ONG">
-            </picture>
+            <div class="container">
+                <div class="row align-center">
+                    <div class="col-md-6">
+                        <h2>Sobre Nossa Organização</h2>
+                        <p>A "Semeando o Futuro" é uma organização não-governamental dedicada a promover a educação e o desenvolvimento sustentável em comunidades carentes. Acreditamos que cada semente plantada hoje pode gerar uma floresta de oportunidades amanhã.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <picture>
+                            <source srcset="images/ong-home.webp" type="image/webp">
+                            <source srcset="images/ong-home.jpg" type="image/jpeg">
+                            <img src="images/ong-home.jpg" alt="Crianças sorrindo em uma sala de aula da ONG" style="border-radius: var(--border-radius);">
+                        </picture>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="contato">
-            <h2>Informações de Contato</h2>
-            <p>Entre em contato conosco para parcerias, doações ou mais informações:</p>
-            
-            <address>
-                <strong>Email:</strong> <a href="mailto:contato@semeandofuturo.org">contato@semeandofuturo.org</a><br>
-                <strong>Telefone:</strong> <a href="tel:+5511999998888">(11) 99999-8888</a><br>
-                <strong>Endereço:</strong> Rua da Esperança, 123 - São Paulo, SP
-            </address>
+        <section id="contato" style="background: var(--color-neutral-light);">
+            <div class="container">
+                <h2>Informações de Contato</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <address>
+                            <strong>Email:</strong> <a href="mailto:contato@semeandofuturo.org">contato@semeandofuturo.org</a><br>
+                            <strong>Telefone:</strong> <a href="tel:+5511999998888">(11) 99999-8888</a><br>
+                            <strong>Endereço:</strong> Rua da Esperança, 123 - São Paulo, SP
+                        </address>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Siga-nos nas redes sociais e acompanhe nosso trabalho de perto!</p>
+                        </div>
+                </div>
+            </div>
         </section>
 
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2025 ONG Semeando o Futuro. Todos os direitos reservados.</p>
     </footer>
 
+    <div class="modal-overlay" id="doar-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ajude a Semeando o Futuro</h3>
+                <button class="modal-close-btn" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Sua doação é vital para mantermos nossos projetos ativos. Escolha uma forma de doar:</p>
+                <strong>Chave PIX (CNPJ):</strong>
+                <p style="font-weight: bold; font-size: 1.1rem; background: #eee; padding: 10px; border-radius: 5px;">12.345.678/0001-99</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
