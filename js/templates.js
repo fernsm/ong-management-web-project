@@ -17,7 +17,7 @@ export const homeTemplate = `
                     <p>A "Semeando o Futuro" é uma organização dedicada a promover a educação e o desenvolvimento sustentável.</p>
                 </div>
                 <div class="col-md-6">
-                     <img src="images/ong-home.jpg" alt="Crianças sorrindo" style="border-radius: var(--border-radius);">
+                     <img src="images/ong-home.webp" alt="Crianças sorrindo" style="border-radius: var(--border-radius);">
                 </div>
             </div>
         </div>
@@ -31,7 +31,7 @@ export const projetosTemplate = `
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <article class="card">
-                        <img src="images/ong-projetos.jpg" alt="Projeto Educar" class="card-image">
+                        <img src="images/ong-projetos.webp" alt="Projeto Educar" class="card-image">
                         <div class="card-body">
                             <span class="badge badge-primary">Educação</span>
                             <h3 class="card-title">Projeto Educar+</h3>
