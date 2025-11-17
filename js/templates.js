@@ -24,10 +24,13 @@ export const homeTemplate = `
     </section>
 `;
 
+// 2. Template da PÁGINA DE PROJETOS (Atualizado com 3 Cards)
 export const projetosTemplate = `
     <section>
         <div class="container">
             <h2>Nossos Projetos Sociais</h2>
+            <p>Conheça as frentes em que atuamos para mudar realidades.</p>
+            
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <article class="card">
@@ -35,11 +38,42 @@ export const projetosTemplate = `
                         <div class="card-body">
                             <span class="badge badge-primary">Educação</span>
                             <h3 class="card-title">Projeto Educar+</h3>
-                            <p class="card-text">Reforço escolar e oficinas de tecnologia.</p>
+                            <p class="card-text">Reforço escolar e oficinas de tecnologia para jovens de 10 a 15 anos.</p>
+                        </div>
+                        <div class="card-footer">
+                             <button class="btn btn-primary">Saiba Mais</button>
                         </div>
                     </article>
                 </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="card">
+                         <img src="images/ong-projetos.webp" alt="Horta Comunitária" class="card-image"> 
+                        <div class="card-body">
+                            <span class="badge badge-secondary">Sustentabilidade</span>
+                            <h3 class="card-title">Horta Comunitária</h3>
+                            <p class="card-text">Cultivo de alimentos orgânicos para distribuição e educação ambiental.</p>
+                        </div>
+                         <div class="card-footer">
+                             <button class="btn btn-primary">Saiba Mais</button>
+                        </div>
+                    </article>
                 </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <article class="card">
+                        <img src="images/ong-projetos.webp" alt="Água Limpa" class="card-image">
+                        <div class="card-body">
+                            <span class="badge badge-primary">Saúde</span>
+                            <h3 class="card-title">Água Limpa</h3>
+                            <p class="card-text">Instalação de filtros e cisternas em comunidades sem acesso à água potável.</p>
+                        </div>
+                         <div class="card-footer">
+                             <button class="btn btn-primary">Saiba Mais</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
         </div>
     </section>
 `;
